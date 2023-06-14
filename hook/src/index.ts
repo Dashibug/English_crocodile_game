@@ -84,10 +84,7 @@ function* script(r: SberRequest) {
         rsp.kbrd = ['Оценить'];
         gender = r.body.payload.character.gender;
         appeal = r.body.payload.character.appeal;
-        if (r.type === 'SERVER_ACTION' && r.act?.action_id === 'help') {
-            rsp.data = {type: 'help'}
-            rsp.msg = '';
-        } else if (r.type === 'SERVER_ACTION' && r.act?.action_id === 'restart') {
+        if (r.type === 'SERVER_ACTION' && r.act?.action_id === 'restart') {
             rsp.msg = 'Начинаю заново';
             rsp.data = {type: 'restart'};
         } else if (r.type === 'SERVER_ACTION' && r.act?.action_id === 'changeword') {
