@@ -128,6 +128,8 @@ function* script(r: SberRequest) {
             }  else if (command.type === 'close') {
                 rsp.data = command;
                 rsp.msg = 'Закрываю';
+            }  else if (command.type === 'help') {
+                rsp.data = command;
             }  else if (command.type === 'restart') {
                 rsp.msg = 'Начинаю заново';
                 rsp.data = command;
