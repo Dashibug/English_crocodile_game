@@ -84,7 +84,10 @@ function* script(r: SberRequest) {
         rsp.kbrd = ['Оценить'];
         gender = r.body.payload.character.gender;
         appeal = r.body.payload.character.appeal;
-        if (r.type === 'SERVER_ACTION' && r.act?.action_id === 'restart') {
+        if (r.type === 'SERVER_ACTION' && r.act?.action_id === 'help') {
+            rsp.data = {type: 'help'}
+            rsp.msg = 'Суть игры - объяснить слово с экрана, используя только мимику, жесты и движения. Кнопка «Новое слово»  - выдает новое слово. Кнопка «Угадано» увеличивает счетчик отгаданных слов. Удачной игры! Чтобы закрыть это окно - достаточно сказать «Закрой помощь»';
+        } else if (r.type === 'SERVER_ACTION' && r.act?.action_id === 'restart') {
             rsp.msg = 'Начинаю заново';
             rsp.data = {type: 'restart'};
         } else if (r.type === 'SERVER_ACTION' && r.act?.action_id === 'changeword') {
@@ -125,9 +128,10 @@ function* script(r: SberRequest) {
             }  else if (command.type === 'close') {
                 rsp.data = command;
                 rsp.msg = 'Закрываю';
-            }  else if (command.type === 'help') {
+            } else if (command.type === 'help') {
                 rsp.data = command;
-            }  else if (command.type === 'restart') {
+                rsp.msg = 'Суть игры - объяснить слово с экрана, используя только мимику, жесты и движения. Кнопка «Новое слово»  - выдает новое слово из того же режима. Кнопка «Угадано» увеличивает счетчик отгаданных слов. Удачной игры! Чтобы закрыть это окно - достаточно сказать «Закрой помощь»';
+            } else if (command.type === 'restart') {
                 rsp.msg = 'Начинаю заново';
                 rsp.data = command;
             } else if (command.type === 'greet') {
