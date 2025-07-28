@@ -20,34 +20,25 @@
 ## 🚀 Установка и локальный запуск
 
 1. Клонируйте репозиторий:
-
-   ```bash
    git clone https://github.com/Dashibug/English_crocodile_game.git
    cd English_crocodile_game
    
 2. Установите глобально фреймворк Dialute:
-   
-   ```bash
    npm install -g dialute
    
 3. Установите зависимости:
-   
-   ```bash
    npm install @sberdevices/assistant-client
    
 4. Установите и запустите ngrok на 8000 порту:
    
-  ```bash
   ./ngrok http 8000
 
 5. Запустите фронтенд:
-  ```bash
   cd app
   npm install
   npm run dev
 
 6. Запустите сервер:
-  ```bash
   cd ../hook
   npm install
   npm run dev
